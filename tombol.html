@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Keren</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        /* Style untuk header */
+         header {
+            background-color: #014c6b;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+      
+        /* Style untuk logo */
+        .logo {
+            font-family: 'Roboto', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        
+
+        /* Style untuk menu-toggle */
+        .menu-toggle {
+            display: none; /* Sembunyikan pada desktop */
+            cursor: pointer;
+            margin-left: 20px;
+            
+        }
+
+        .menu-toggle span {
+            height: 4px;
+            width: 30px;
+            background-color: #fff;
+            margin: 4px 0;
+            display: block;
+        }
+
+
+        /* Style untuk tampilan mobile */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; /* Tampilkan pada mobile */
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                cursor: pointer;
+                z-index: 1000;
+            }
+
+            /* Style untuk menu-toggle setelah ditekan */
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(50deg);
+                background-color: red; /* Ubah warna menjadi merah */
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-50deg);
+                background-color: red; /* Ubah warna menjadi merah */
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                background-color: #333;
+            }
+
+            nav.active {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            nav a {
+                padding: 15px 20px;
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                border-bottom: 1px solid #555;
+                width: 93%;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">WAHANATOTO 1 & 2</a>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav id="menu">
+        <a href="#">Beranda</a>
+        <a href="#">Tentang</a>
+        <a href="#">Layanan</a>
+        <a href="#">Kontak</a>
+    </nav>
+</header>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        var menuToggle = document.querySelector(".menu-toggle");
+        
+        menu.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+    }
+</script>
+
+</body>
+</html>
